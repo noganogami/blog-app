@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import { ChakraProvider, Flex } from "@chakra-ui/react";
 import { Header } from "@/components/Header";
 
-const inter = Inter({ subsets: ["latin"] });
+const font = Noto_Sans_JP({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,10 +21,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="ja">
+      <body className={font.className}>
         <ChakraProvider>
-          <Flex flexDirection={"column"} minH={"100vh"}>
+          <Flex flexDirection={"column"} align={"center"} minH={"100vh"}>
             <Header />
             {children}
           </Flex>

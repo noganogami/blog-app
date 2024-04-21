@@ -2,7 +2,7 @@ import { Box, Flex } from "@chakra-ui/react";
 
 export default function Home() {
   return (
-    <Box flexDirection={"column"} h={"100%"} p={20}>
+    <Box flexDirection={"column"} h={"100%"} w={"100%"} maxW={720} py={20}>
       <Box h={100} w={"100%"} bg={"gray"}>
         filter
       </Box>

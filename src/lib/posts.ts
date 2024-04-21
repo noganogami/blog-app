@@ -16,7 +16,7 @@ export const getPostData = (id: string): PostType => {
   };
 };
 
-export const getPostId = () => {
+export const getPostIds = () => {
   const files = readdirSync(BASE_DIR);
   const ids = files.map(filename => {
     return { id: filename.replace(/\.md$/, "") };
