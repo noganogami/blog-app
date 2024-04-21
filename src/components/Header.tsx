@@ -7,8 +7,9 @@ export const Header = () => {
   return (
     <Box
       w={"100%"}
-      bg={useColorModeValue("gray.100", "gray.700")}
+      // bg={useColorModeValue("gray.100", "gray.700")}
       position={"sticky"}
+      borderBottomWidth={1}
     >
       <Button onClick={toggleColorMode}>toggle-color-mode</Button>
     </Box>

@@ -1,9 +1,17 @@
-import ReactMarkdown from 'react-markdown';
-import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
-import remarkGfm from 'remark-gfm'
+import ReactMarkdown from "react-markdown";
+import ChakraUIRenderer from "chakra-ui-markdown-renderer";
+import remarkGfm from "remark-gfm";
 import { getPostIds, getPostData } from "@/lib/posts";
-import { Box, ComponentDefaultProps, Heading, ListItem, OrderedList, Text, UnorderedList } from "@chakra-ui/react";
-import { ReactNode } from 'react';
+import {
+  Box,
+  ComponentDefaultProps,
+  Heading,
+  ListItem,
+  OrderedList,
+  Text,
+  UnorderedList,
+} from "@chakra-ui/react";
+import { ReactNode } from "react";
 
 export const dynamicParams = false;
 
@@ -18,11 +26,11 @@ interface PostParams {
 }
 
 export default function Post({ params }: PostParams) {
-  const data = getPostData(params.id)
+  const data = getPostData(params.id);
 
   const theme = {
     p: (props: ComponentDefaultProps) => {
-      const { children } = props
+      const { children } = props;
       return (
         <Text mb={2} fontSize={"lg"}>
           {children}
@@ -30,7 +38,7 @@ export default function Post({ params }: PostParams) {
       );
     },
     ul: (props: ComponentDefaultProps) => {
-      const { children } = props
+      const { children } = props;
       return (
         <UnorderedList mb={2} pl={2}>
           {children}
@@ -38,7 +46,7 @@ export default function Post({ params }: PostParams) {
       );
     },
     ol: (props: ComponentDefaultProps) => {
-      const { children } = props
+      const { children } = props;
       return (
         <OrderedList mb={2} pl={1}>
           {children}
@@ -46,12 +54,8 @@ export default function Post({ params }: PostParams) {
       );
     },
     li: (props: ComponentDefaultProps) => {
-      const { children } = props
-      return (
-        <ListItem fontSize={"lg"}>
-          {children}
-        </ListItem>
-      );
+      const { children } = props;
+      return <ListItem fontSize={"lg"}>{children}</ListItem>;
     },
   };
 
@@ -62,8 +66,9 @@ export default function Post({ params }: PostParams) {
       <ReactMarkdown
         components={ChakraUIRenderer(theme)}
         remarkPlugins={[remarkGfm]}
-        children={data.content}
-      />
+      >
+        {data.content}
+      </ReactMarkdown>
     </Box>
   );
 }

@@ -5,10 +5,10 @@ import { ChakraProvider, Flex } from "@chakra-ui/react";
 import { Header } from "@/components/Header";
 
 const font = Noto_Sans_JP({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-})
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
