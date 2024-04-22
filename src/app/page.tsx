@@ -1,7 +1,7 @@
 import { FilterPosts } from "@/components/FilterPosts";
 import { PostCard } from "@/components/PostCard";
 import { SortPosts } from "@/components/SortPosts";
-import { getAllPostData } from "@/lib/posts";
+import { getPosts, getTopics } from "@/lib/posts";
 import { Box, Flex } from "@chakra-ui/react";
 
 interface Params {
@@ -11,7 +11,7 @@ interface Params {
 }
 
 export default function Home({ searchParams }: Params) {
-  const posts = getAllPostData();
+  const posts = getPosts();
 
   return (
     <Box flexDirection={"column"} h={"100%"} w={"100%"} maxW={800} py={20}>

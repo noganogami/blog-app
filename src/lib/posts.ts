@@ -1,4 +1,4 @@
-import { PostType } from "@/types";
+import { PostType, Topic } from "@/types";
 import { readFileSync, readdirSync } from "fs";
 import matter from "gray-matter";
 import { join } from "path";
@@ -10,13 +10,15 @@ export const getPostData = (id: string): PostType => {
   const file = readFileSync(filePath);
   const { data, content } = matter(file);
   return {
-    id,
-    ...(data as { title: string; date: string }),
+    id: id,
+    title: data.title,
+    date: data.date,
+    tags: new Set(data.tags),
     content,
   };
 };
 
-export const getAllPostData = (): PostType[] => {
+export const getPosts = (): PostType[] => {
   const files = readdirSync(BASE_DIR);
   const posts = files.map(filename => {
     return getPostData(filename.replace(/\.md$/, ""));
@@ -31,4 +33,21 @@ export const getPostIds = () => {
   });
 
   return ids;
+};
+
+export const getTopics = () => {
+  const posts = getPosts();
+  const topics: Topic[] = [];
+
+  for (const post of posts) {
+    for (const tag of post.tags) {
+      const idx = topics.findIndex(topic => topic.tag === tag);
+      if (idx !== -1) {
+        topics[idx] = { tag: tag, refCount: topics[idx].refCount + 1 };
+      } else {
+        topics.push({ tag: tag, refCount: 1 });
+      }
+    }
+  }
+  return topics;
 };
