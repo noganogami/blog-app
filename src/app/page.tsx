@@ -1,22 +1,31 @@
-import { FilterPosts } from "@/components/FilterPosts";
+import { ModalTemplate } from "@/components/ModalTemplete";
 import { PostCard } from "@/components/PostCard";
 import { SortPosts } from "@/components/SortPosts";
+import { Tags } from "@/components/Tags";
 import { getPosts, getTopics } from "@/lib/posts";
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, Menu } from "@chakra-ui/react";
 
 interface Params {
   searchParams: {
-    order: string;
+    order: string | undefined;
+    tag: string | undefined;
   };
 }
 
 export default function Home({ searchParams }: Params) {
-  const posts = getPosts();
+  const posts = getPosts(searchParams.tag);
+  const topics = getTopics();
 
   return (
     <Box flexDirection={"column"} h={"100%"} w={"100%"} maxW={800} py={20}>
-      <Box mb={2}>
+      <Box mb={2} display={"flex"} gap={2}>
         <SortPosts />
+        <ModalTemplate title="タグ一覧">
+          <Tags
+            tags={topics.map(topic => topic.tag)}
+            refCounts={topics.map(topic => topic.refCount)}
+          />
+        </ModalTemplate>
       </Box>
       <Flex flexDirection={"column"} p={10} gap={5} borderWidth={1}>
         {posts

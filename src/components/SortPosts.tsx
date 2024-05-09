@@ -1,4 +1,5 @@
 "use client";
+
 import { ArrowDownIcon, ArrowUpIcon } from "@chakra-ui/icons";
 import { Box } from "@chakra-ui/react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";

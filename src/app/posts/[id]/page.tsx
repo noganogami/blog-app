@@ -1,17 +1,20 @@
-import ReactMarkdown from "react-markdown";
-import ChakraUIRenderer from "chakra-ui-markdown-renderer";
-import remarkGfm from "remark-gfm";
-import { getPostIds, getPostData } from "@/lib/posts";
+import { Tags } from "@/components/Tags";
+import { getPostData, getPostIds } from "@/lib/posts";
 import {
   Box,
   ComponentDefaultProps,
   Heading,
   ListItem,
   OrderedList,
+  Tag,
   Text,
   UnorderedList,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
-import { ReactNode } from "react";
+import ChakraUIRenderer from "chakra-ui-markdown-renderer";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 export const dynamicParams = false;
 
@@ -61,8 +64,11 @@ export default function Post({ params }: PostParams) {
 
   return (
     <Box maxW={680} w={"100%"} py={20}>
-      <Heading>{data.title}</Heading>
-      <Text mb={5}>{data.date}</Text>
+      <Box mb={5}>
+        <Heading>{data.title}</Heading>
+        <Text mb={3}>{data.date}</Text>
+        <Tags tags={Array.from(data.tags)} />
+      </Box>
       <ReactMarkdown
         components={ChakraUIRenderer(theme)}
         remarkPlugins={[remarkGfm]}

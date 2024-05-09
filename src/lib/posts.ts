@@ -18,11 +18,15 @@ export const getPostData = (id: string): PostType => {
   };
 };
 
-export const getPosts = (): PostType[] => {
+export const getPosts = (tag?: string): PostType[] => {
   const files = readdirSync(BASE_DIR);
-  const posts = files.map(filename => {
-    return getPostData(filename.replace(/\.md$/, ""));
-  });
+  const posts = files
+    .map(filename => {
+      return getPostData(filename.replace(/\.md$/, ""));
+    })
+    .filter(postData => {
+      return tag === undefined || postData.tags.has(tag);
+    });
   return posts;
 };
 

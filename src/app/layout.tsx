@@ -1,8 +1,8 @@
+import "./globals.css";
+import { Header } from "@/components/Header";
+import { ChakraProvider, Flex } from "@chakra-ui/react";
 import type { Metadata } from "next";
 import { Inter, Noto_Sans_JP } from "next/font/google";
-import "./globals.css";
-import { ChakraProvider, Flex } from "@chakra-ui/react";
-import { Header } from "@/components/Header";
 
 const font = Noto_Sans_JP({
   weight: "400",

@@ -1,6 +1,6 @@
-import ReactMarkdown from "react-markdown";
 import { PostType } from "@/types";
-import { Box, Text, Heading, Container, Flex } from "@chakra-ui/react";
+import { Box, Container, Flex, Heading, Text } from "@chakra-ui/react";
+import ReactMarkdown from "react-markdown";
 
 interface PostCardProps {
   post: PostType;
