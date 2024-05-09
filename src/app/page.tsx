@@ -3,7 +3,7 @@ import { PostCard } from "@/components/PostCard";
 import { SortPosts } from "@/components/SortPosts";
 import { Tags } from "@/components/Tags";
 import { getPosts, getTopics } from "@/lib/posts";
-import { Box, Flex, Menu } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 
 interface Params {
   searchParams: {

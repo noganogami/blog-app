@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Button, useColorMode, useColorModeValue } from "@chakra-ui/react";
+import { Box, Button, useColorMode } from "@chakra-ui/react";
 
 export const Header = () => {
   const { toggleColorMode } = useColorMode();

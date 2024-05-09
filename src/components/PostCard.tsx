@@ -1,5 +1,5 @@
 import { PostType } from "@/types";
-import { Box, Container, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Heading, Text } from "@chakra-ui/react";
 import ReactMarkdown from "react-markdown";
 
 interface PostCardProps {

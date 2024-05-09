@@ -6,11 +6,8 @@ import {
   Heading,
   ListItem,
   OrderedList,
-  Tag,
   Text,
   UnorderedList,
-  Wrap,
-  WrapItem,
 } from "@chakra-ui/react";
 import ChakraUIRenderer from "chakra-ui-markdown-renderer";
 import ReactMarkdown from "react-markdown";
