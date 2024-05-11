@@ -28,7 +28,9 @@ export default function RootLayout({
         <ChakraProvider>
           <Flex flexDirection={"column"} align={"center"} minH={"100vh"}>
             <Header />
-            <Box px={4}>{children}</Box>
+            <Box py={"72px"} px={4}>
+              {children}
+            </Box>
           </Flex>
         </ChakraProvider>
       </body>
