@@ -1,5 +1,6 @@
 import { ModalTemplate } from "@/components/ModalTemplete";
 import { PostCard } from "@/components/PostCard";
+import { SelectedTag } from "@/components/SelectedTag";
 import { SortPosts } from "@/components/SortPosts";
 import { Tags } from "@/components/Tags";
 import { getPosts, getTopics } from "@/lib/posts";
@@ -26,6 +27,7 @@ export default function Home({ searchParams }: Params) {
             refCounts={topics.map(topic => topic.refCount)}
           />
         </ModalTemplate>
+        <SelectedTag />
       </Box>
       <Flex flexDirection={"column"} p={10} gap={5} borderWidth={1}>
         {posts
