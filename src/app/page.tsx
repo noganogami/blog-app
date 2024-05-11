@@ -5,6 +5,7 @@ import { SortPosts } from "@/components/SortPosts";
 import { Tags } from "@/components/Tags";
 import { getPosts, getTopics } from "@/lib/posts";
 import { Box, Flex } from "@chakra-ui/react";
+import { Metadata } from "next";
 
 interface Params {
   searchParams: {
@@ -12,6 +13,10 @@ interface Params {
     tag: string | undefined;
   };
 }
+
+export const metadata: Metadata = {
+  title: "記事一覧",
+};
 
 export default function Home({ searchParams }: Params) {
   const posts = getPosts(searchParams.tag);

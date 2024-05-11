@@ -25,6 +25,14 @@ interface PostParams {
   };
 }
 
+export async function generateMetadata({ params }: PostParams) {
+  const data = getPostData(params.id);
+
+  return {
+    title: data.title,
+  };
+}
+
 export default function Post({ params }: PostParams) {
   const data = getPostData(params.id);
 
