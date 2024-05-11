@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Header } from "@/components/Header";
-import { ChakraProvider, Flex } from "@chakra-ui/react";
+import { Box, ChakraProvider, Flex } from "@chakra-ui/react";
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 
@@ -26,7 +26,7 @@ export default function RootLayout({
         <ChakraProvider>
           <Flex flexDirection={"column"} align={"center"} minH={"100vh"}>
             <Header />
-            {children}
+            <Box px={4}>{children}</Box>
           </Flex>
         </ChakraProvider>
       </body>

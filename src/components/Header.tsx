@@ -1,18 +1,24 @@
-"use client";
-
-import { Box, Button, useColorMode } from "@chakra-ui/react";
+import { Flex, Img } from "@chakra-ui/react";
 
 export const Header = () => {
-  const { toggleColorMode } = useColorMode();
-
   return (
-    <Box
+    <Flex
       w={"100%"}
-      // bg={useColorModeValue("gray.100", "gray.700")}
+      h={"72px"}
+      bg={"blue.700"}
       position={"sticky"}
       borderBottomWidth={1}
+      justify={"center"}
+      zIndex={10}
     >
-      <Button onClick={toggleColorMode}>toggle-color-mode</Button>
-    </Box>
+      <Img
+        src="/icon.png"
+        position={"absolute"}
+        bottom={"-70px"}
+        boxSize={"112px"}
+        borderRadius="full"
+        overflow={"hidden"}
+      />
+    </Flex>
   );
 };

@@ -60,7 +60,7 @@ export default function Post({ params }: PostParams) {
   };
 
   return (
-    <Box maxW={680} w={"100%"} py={20}>
+    <Box maxW={680} py={20}>
       <Box mb={5}>
         <Heading>{data.title}</Heading>
         <Text mb={3}>{data.date}</Text>
