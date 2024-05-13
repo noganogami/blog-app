@@ -6,7 +6,7 @@ export type PostType = {
   content: string;
 };
 
-export type Topic = {
-  tag: string;
+export type Tag = {
+  name: string;
   refCount: number;
 };

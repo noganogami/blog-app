@@ -3,7 +3,7 @@ import { PostCard } from "@/components/PostCard";
 import { SelectedTag } from "@/components/SelectedTag";
 import { SortPosts } from "@/components/SortPosts";
 import { Tags } from "@/components/Tags";
-import { getPosts, getTopics } from "@/lib/posts";
+import { getPosts, getAllTags } from "@/lib/posts";
 import { Box, Flex } from "@chakra-ui/react";
 import { Metadata } from "next";
 
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function Home({ searchParams }: Params) {
   const posts = getPosts(searchParams.tag);
-  const topics = getTopics();
+  const tags = getAllTags();
 
   return (
     <Box flexDirection={"column"} h={"100%"} w={"100%"} maxW={800} py={20}>
@@ -28,8 +28,8 @@ export default function Home({ searchParams }: Params) {
         <SortPosts />
         <ModalTemplate title="タグ一覧">
           <Tags
-            tags={topics.map(topic => topic.tag)}
-            refCounts={topics.map(topic => topic.refCount)}
+            tags={tags.map(tag => tag.name)}
+            refCounts={tags.map(tag => tag.refCount)}
           />
         </ModalTemplate>
         <SelectedTag />

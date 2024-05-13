@@ -1,4 +1,4 @@
-import { PostType, Topic } from "@/types";
+import { PostType, Tag } from "@/types";
 import { readFileSync, readdirSync } from "fs";
 import matter from "gray-matter";
 import { join } from "path";
@@ -39,19 +39,19 @@ export const getPostIds = () => {
   return ids;
 };
 
-export const getTopics = () => {
+export const getAllTags = () => {
   const posts = getPosts();
-  const topics: Topic[] = [];
+  const tags: Tag[] = [];
 
   for (const post of posts) {
-    for (const tag of post.tags) {
-      const idx = topics.findIndex(topic => topic.tag === tag);
+    for (const postTag of post.tags) {
+      const idx = tags.findIndex(tags => tags.name === postTag);
       if (idx !== -1) {
-        topics[idx] = { tag: tag, refCount: topics[idx].refCount + 1 };
+        tags[idx] = { name: postTag, refCount: tags[idx].refCount + 1 };
       } else {
-        topics.push({ tag: tag, refCount: 1 });
+        tags.push({ name: postTag, refCount: 1 });
       }
     }
   }
-  return topics;
+  return tags;
 };
